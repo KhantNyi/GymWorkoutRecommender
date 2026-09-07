@@ -1,0 +1,2 @@
+# Preserve downloaded source bytes so manifest checksums survive Git checkouts.
+data/raw/** -text

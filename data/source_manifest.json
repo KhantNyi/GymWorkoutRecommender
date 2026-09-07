@@ -1,0 +1,44 @@
+[
+  {
+    "file": "gym_exercises.zip",
+    "url": "https://www.kaggle.com/api/v1/datasets/download/niharika41298/gym-exercise-data",
+    "bytes": 122474,
+    "sha256": "4e766ce649ff23d3a6d06698dc2b7e34b75733294a5be1caa024b8fdebbd4f4a",
+    "verified_at": "2026-09-07T16:43:25.860445+00:00"
+  },
+  {
+    "file": "gym_members.zip",
+    "url": "https://www.kaggle.com/api/v1/datasets/download/valakhorasani/gym-members-exercise-dataset",
+    "bytes": 22093,
+    "sha256": "2b79e954231a2204a9aacc1229cc9a093cd682460e46bb1cd9db0ee6de865fe9",
+    "verified_at": "2026-09-07T16:43:27.073472+00:00"
+  },
+  {
+    "file": "exercises.json",
+    "url": "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/dist/exercises.json",
+    "bytes": 1005327,
+    "sha256": "5bb747e3fc658f095a60dcbf6d53c96627acdcc6ffb6fffde86f7e26995d40bf",
+    "verified_at": "2026-09-07T16:43:27.458930+00:00"
+  },
+  {
+    "file": "FREE_EXERCISE_LICENSE.md",
+    "url": "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/LICENSE.md",
+    "bytes": 1211,
+    "sha256": "6b0382b16279f26ff69014300541967a356a666eb0b91b422f6862f6b7dad17e",
+    "verified_at": "2026-09-07T16:43:27.805596+00:00"
+  },
+  {
+    "file": "gym_exercises_metadata.json",
+    "url": "https://www.kaggle.com/api/v1/datasets/list/niharika41298/gym-exercise-data",
+    "bytes": 439,
+    "sha256": "a80344d41cdf80c7a9136bce9b3fb4018409bb54f68aa04483965596e3a6c9d7",
+    "verified_at": "2026-09-07T16:43:28.197024+00:00"
+  },
+  {
+    "file": "gym_members_metadata.json",
+    "url": "https://www.kaggle.com/api/v1/datasets/list/valakhorasani/gym-members-exercise-dataset",
+    "bytes": 468,
+    "sha256": "b158d9f894c1a14b2f17eef86cf1ca09f768e801780f75d6480854bbe3c870c1",
+    "verified_at": "2026-09-07T16:43:28.684485+00:00"
+  }
+]

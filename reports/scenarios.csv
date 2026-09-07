@@ -1,0 +1,37 @@
+goal,location,budget,eligible,planned,allocated_minutes,equipment_violations,budget_violation,unique_muscles
+Beginner,Gym,10,124,1,10,0,False,1
+Beginner,Gym,30,124,3,26,0,False,3
+Beginner,Gym,60,124,7,54,0,False,7
+Beginner,Home,10,124,1,10,0,False,1
+Beginner,Home,30,124,3,26,0,False,3
+Beginner,Home,60,124,7,54,0,False,7
+Beginner,Outdoors,10,124,1,10,0,False,1
+Beginner,Outdoors,30,124,3,26,0,False,3
+Beginner,Outdoors,60,124,7,54,0,False,7
+Weight Loss,Gym,10,124,1,10,0,False,1
+Weight Loss,Gym,30,124,3,26,0,False,3
+Weight Loss,Gym,60,124,7,54,0,False,5
+Weight Loss,Home,10,124,1,10,0,False,1
+Weight Loss,Home,30,124,3,26,0,False,3
+Weight Loss,Home,60,124,7,54,0,False,5
+Weight Loss,Outdoors,10,124,1,10,0,False,1
+Weight Loss,Outdoors,30,124,3,26,0,False,3
+Weight Loss,Outdoors,60,124,7,54,0,False,5
+Muscle Gain,Gym,10,124,1,10,0,False,1
+Muscle Gain,Gym,30,124,3,26,0,False,3
+Muscle Gain,Gym,60,124,7,54,0,False,7
+Muscle Gain,Home,10,124,1,10,0,False,1
+Muscle Gain,Home,30,124,3,26,0,False,3
+Muscle Gain,Home,60,124,7,54,0,False,7
+Muscle Gain,Outdoors,10,124,1,10,0,False,1
+Muscle Gain,Outdoors,30,124,3,26,0,False,3
+Muscle Gain,Outdoors,60,124,7,54,0,False,7
+Strength,Gym,10,124,1,10,0,False,1
+Strength,Gym,30,124,3,26,0,False,3
+Strength,Gym,60,124,7,54,0,False,7
+Strength,Home,10,124,1,10,0,False,1
+Strength,Home,30,124,3,26,0,False,3
+Strength,Home,60,124,7,54,0,False,7
+Strength,Outdoors,10,124,1,10,0,False,1
+Strength,Outdoors,30,124,3,26,0,False,3
+Strength,Outdoors,60,124,7,54,0,False,7

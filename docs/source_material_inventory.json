@@ -1,0 +1,42 @@
+[
+  {
+    "file": "Gym_Workout_Recommendation_System_Proposal (1).pptx",
+    "sha256": "96d6dbb91b1fe787a478ada9558a8238e938117fea51d586b85457ae19fce952",
+    "bytes": 42913
+  },
+  {
+    "file": "RSs Chapter 1.pdf",
+    "sha256": "d4908ab2928d181fa35ca2ea3feb631918c83e393b9edd537e97c55c43f968b5",
+    "bytes": 499934
+  },
+  {
+    "file": "RSs Chapter 2.pdf",
+    "sha256": "2ded512ce17dc3d5bc375550452bc8c4eda16bfc6dc061d10a310f7874f5e4e3",
+    "bytes": 1183300
+  },
+  {
+    "file": "RS_Ch7_Knowledge_Based_Recommendation (1).ipynb",
+    "sha256": "2d8ae4ff1bb657584b5477a5582845a8228f002017312f27cbc94ed2c1fc474a",
+    "bytes": 3360220
+  },
+  {
+    "file": "RS_Ch8_Context_Aware_Recommendation.ipynb",
+    "sha256": "55db9c048dfa8fc9b6ef6c685212dc322e5bb4aee04003308f57573711c33f66",
+    "bytes": 3604080
+  },
+  {
+    "file": "RS_Ch_3_Poppularity_Base_Recommender_System.ipynb",
+    "sha256": "f6979ef8f8a3fdb073250e67fcfb24d8aff2df0ab4c55141331b5751270b4604",
+    "bytes": 1092528
+  },
+  {
+    "file": "RS_Ch_4_Content_Base_Recommendation_Cosine_Similarity.ipynb",
+    "sha256": "93e5d3cf5b18acdd63466f755dc441084e40187374778cc6b899aa3113447acd",
+    "bytes": 1952109
+  },
+  {
+    "file": "RS_Ch_5_Content_Base_Recommendation_SVD_Singular_Value_Decomposition.ipynb",
+    "sha256": "a89746d19c29f590e306723f191710b9dd245e4137b53ad49e16dc7c088740cc",
+    "bytes": 3850532
+  }
+]

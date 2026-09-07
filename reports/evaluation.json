@@ -1,0 +1,11 @@
+{
+  "catalogue_items": 2872,
+  "scenarios": 36,
+  "budget_violations": 0,
+  "equipment_violations": 0,
+  "scenario_catalogue_coverage": 0.006267409470752089,
+  "ranking_evaluation": {
+    "status": "unavailable: no eligible genuine held-out histories; no synthetic accuracy is reported"
+  },
+  "limitations": "Scenario coverage describes only tested profiles. No evidence of fitness outcomes or real-world ranking accuracy without adequate genuine feedback."
+}

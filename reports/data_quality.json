@@ -1,0 +1,28 @@
+{
+  "raw_exercises": 2918,
+  "clean_exercises": 2872,
+  "removed_duplicate_or_missing_titles": 46,
+  "instruction_matches": 580,
+  "member_rows": 973,
+  "missing_source_ratings": 1860,
+  "equipment_counts": {
+    "bodyweight": 1067,
+    "dumbbell": 508,
+    "barbell": 277,
+    "other": 250,
+    "cable": 222,
+    "machine": 168,
+    "kettlebells": 146,
+    "bands": 98,
+    "medicine ball": 38,
+    "exercise ball": 35,
+    "unknown": 31,
+    "ez bar": 21,
+    "foam roll": 11
+  },
+  "level_counts": {
+    "intermediate": 2404,
+    "beginner": 456,
+    "expert": 12
+  }
+}
