@@ -1,4 +1,18 @@
-# Form & Focus — Gym Workout Recommendation System
+# Gym Workout Recommender
+
+Open **[Gym_Workout_Recommender.ipynb](Gym_Workout_Recommender.ipynb)** and select **Run All**. The notebook opens a working interface: enter your profile and equipment, click **Build my workout**, then record completed exercises in **Activity & feedback**. It also includes exercise search and downloadable workouts/history.
+
+All system code is embedded in the notebook. It uses the included `data/processed/` catalogue and saves notebook profiles/feedback separately in `data/notebook_workouts.sqlite3`. It does not require the application Python modules or Streamlit. The code cells are collapsed to keep the interface prominent.
+
+Install notebook dependencies in your selected kernel if needed:
+
+```powershell
+python -m pip install -r requirements-notebook.txt
+```
+
+Locally, the project `.venv` already contains the notebook dependencies; select `.venv/Scripts/python.exe` as the VS Code notebook kernel. The virtual environment itself is not included in Git.
+
+The standalone notebook replaces the earlier chapter-based teaching notebook. The optional Streamlit application below remains available.
 
 A runnable local application based on the supplied gym workout PPT and chapter materials. It includes goal-based workout plans, saved profiles, equipment/time constraints, exercise search, workout logging, explanations, CSV exports, algorithm comparisons and case-based session retrieval.
 
