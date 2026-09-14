@@ -44,14 +44,14 @@ def main():
             ranked=rec.exercise_id.tolist()
             rank=ranked.index(held.exercise_id)+1 if held.exercise_id in ranked else None
             metrics.append(dict(user_id=uid,method=method,hit=int(rank is not None),
-                                ndcg=1/math.log2(rank+1) if rank else 0,fallback=info['fallback']))
+                                ndcg=1/math.log2(rank+1) if rank else 0))
     ranking={'status':'unavailable: no eligible genuine held-out histories; no synthetic accuracy is reported'}
     if metrics:
         scores=pd.DataFrame(metrics)
         scores.to_csv(ROOT/'reports/heldout_users.csv',index=False)
         ranking={'status':'chronological leave-last-positive-out; one relevant item per user; broad profile',
                  'methods':scores.groupby('method').agg(users=('user_id','count'),recall_at_10=('hit','mean'),
-                   hit_rate_at_10=('hit','mean'),ndcg_at_10=('ndcg','mean'),fallbacks=('fallback','sum')).reset_index().to_dict('records')}
+                   hit_rate_at_10=('hit','mean'),ndcg_at_10=('ndcg','mean')).reset_index().to_dict('records')}
     report={'catalogue_items':len(engine.items),'scenarios':len(scenarios),
             'budget_violations':sum(s['budget_violation'] for s in scenarios),
             'equipment_violations':sum(s['equipment_violations'] for s in scenarios),

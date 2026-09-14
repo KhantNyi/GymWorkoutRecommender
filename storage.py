@@ -17,7 +17,19 @@ def connect(path=DB):
       user_id TEXT NOT NULL REFERENCES profiles(user_id), exercise_id TEXT NOT NULL,
       duration REAL NOT NULL CHECK(duration>0), completion REAL NOT NULL CHECK(completion BETWEEN 0 AND 1),
       rating REAL NOT NULL CHECK(rating BETWEEN 1 AND 5), created_at TEXT NOT NULL);
+    CREATE TABLE IF NOT EXISTS profile_migrations(
+      user_id TEXT PRIMARY KEY, original_json TEXT NOT NULL, migrated_at TEXT NOT NULL);
     ''')
+    # Preserve the original profile and its identity; activity foreign keys stay valid.
+    for uid, original in con.execute('SELECT user_id, profile_json FROM profiles').fetchall():
+        profile = json.loads(original)
+        if profile.get('goal') == 'Beginner':
+            con.execute('INSERT OR IGNORE INTO profile_migrations VALUES(?,?,?)',
+                        (uid, original, datetime.now(timezone.utc).isoformat()))
+            profile.update(goal='General Fitness', experience='beginner')
+            con.execute('UPDATE profiles SET profile_json=? WHERE user_id=?',
+                        (json.dumps(profile), uid))
+    con.commit()
     return con
 
 def save_profile(profile, path=DB):

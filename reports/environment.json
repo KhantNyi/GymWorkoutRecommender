@@ -5,7 +5,9 @@
     "pandas": "2.2.3",
     "scikit-learn": "1.6.1",
     "streamlit": "1.43.2",
-    "pytest": "8.3.5"
+    "pytest": "8.3.5",
+    "Pillow": "11.1.0"
   },
-  "notebook_code_cells_executed": 7
+  "tests_passed": 28,
+  "catalogue_scenarios": 36
 }

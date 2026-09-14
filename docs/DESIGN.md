@@ -1,47 +1,34 @@
-# Gym Workout Recommendation System
+# Gym Workout Recommender design
 
-The three-slide proposal specifies four goals (Beginner, Weight Loss, Muscle Gain, Strength), user profiles, exercise attributes and activity history. This application implements that workflow as a local Streamlit application with SQLite persistence. It does not introduce camera recognition: the presentation has no image detection or pose-estimation requirement, so Roboflow annotations are not needed.
+## Architecture and interaction
 
-## Architecture
+Streamlit provides Build workout, Exercise library and Activity pages. CSV data feeds a TF-IDF engine; SQLite supplies profiles and genuine feedback. Images are attached through a verified local manifest.
 
-```mermaid
-flowchart LR
-  A[Kaggle exercises] --> D[Validated downloads and normalization]
-  B[Free Exercise DB] --> D
-  D --> E[Exercise catalogue and TF-IDF]
-  F[Profile and current context] --> G[Hard constraints]
-  E --> G
-  H[SQLite feedback] --> I[Popularity / SVD / CF]
-  G --> J[Content and rule scores]
-  I --> K[Weighted ranking and diversity]
-  J --> K
-  K --> L[Time-budgeted workout and explanations]
-  L --> H
-  M[Kaggle member sessions] --> N[Similar-session case retrieval]
-  F --> N
-```
+The editor separates draft and applied profiles. Edits show an unapplied-change notice; Build my workout validates, saves and applies them. Method switching immediately reranks the applied profile. Page navigation preserves draft filters and selected method. Loading a profile replaces draft and applied settings. The applied settings appear above the workout. Library browsing is independent of workout constraints.
 
-## Data contract
+## Profiles and persistence
 
-- Profile: UserID, age, gender, height in cm, weight in kg, computed BMI, goal, experience, available equipment, focus/excluded primary muscles, minutes, location and energy.
-- Exercise: stable normalized-title ID, name, description, category, primary muscle, level, source equipment, inferred required equipment, source rating, instructions and instruction provenance.
-- Activity: generated activity ID, profile foreign key, exercise ID, actual duration in minutes, completion in [0,1], explicit 1–5 rating and UTC timestamp. One row is one logged exercise, not a whole workout session.
-- Proposal calories field: downloaded session-level Calories_Burned is visible in case retrieval. Exercise-level calories are unavailable and deliberately remain unestimated. Source-session calories cannot be assigned to unrelated catalogue exercises.
+Goals: General Fitness, Weight Loss, Muscle Gain, Strength. Experience: beginner, intermediate, expert (displayed as Advanced). Equipment always includes bodyweight; presets are editable. Primary-muscle focus/exclusions, available minutes, location and energy constrain the plan. Demographics are optional to edit and do not affect ranking.
 
-Raw data remains unchanged. Deduplication uses normalized exercise titles and keeps the first occurrence. Equipment accessories are inferred from description/name tokens and may conservatively exclude exercises. Unknown/other source equipment cannot be selected. Source secondary muscles and medical contraindications are not modeled.
+SQLite stores profile JSON and exercise activities (user, exercise ID, actual duration, completion 0–1, rating 1–5, UTC timestamp). Legacy Beginner goals migrate to General Fitness + beginner experience. Original JSON is preserved once in `profile_migrations`; user IDs and activities remain unchanged. Repeated migration is idempotent.
 
-## Ranking
+## Ranking and allocation
 
-1. Reject items above experience level, beyond available equipment or in excluded/focus-mismatched primary muscle groups. Beginner goal and low energy cap difficulty at beginner. Outdoors removes fixed machines and cable equipment from availability; home uses explicitly selected home equipment.
-2. Content cosine compares goal/focus TF-IDF to exercises. When positive feedback exists, blend 60% profile similarity and 40% liked-exercise centroid similarity.
-3. Popularity is (5 × source-prior + local-count × local-mean) / (5 + local-count), with ratings normalized to [0,1]. Missing source ratings use the catalogue median. Raw source ratings contain zeros and lack vote counts; they are not clinical quality labels.
-4. Knowledge score = 0.7 category-goal match + 0.3 experience match. Context score = 0.6 knowledge + 0.4 personal historical completion, defaulting to 0.5 completion when unobserved.
-5. Hybrid = 0.40 content + 0.20 popularity + 0.25 knowledge + 0.15 context. With feedback support, blend 80% hybrid and 20% mean of SVD/user CF/item CF. Weights are engineering defaults, not learned or validated optimal values.
-6. CF uses averaged repeated ratings. Require at least two users and two rated exercises for the active user. User/item cosine is shrunk by overlap/(overlap+3). SVD subtracts user means, imputes missing residuals as zero, retains up to eight factors, restores means and clips to [1,5]. Unsupported items receive zero collaborative scores. Sparse overlap can still produce weak signals; more genuine ratings are needed.
-7. Greedy selection subtracts 0.10 per already-selected exercise with the same primary muscle. The plan assigns 5-minute blocks for low energy and 7 otherwise, shortening the block to fit a 10-minute session, plus a 5-minute preparation buffer. It never exceeds the user's budget. Templates are illustrative planning allocations and not exercise prescriptions.
+Only Content-based, Context-aware and Hybrid can be selected. SVD, user/item CF and case retrieval were removed.
 
-## Evaluation and limitations
+1. Filter by available equipment, experience and primary-muscle preferences. Low energy caps difficulty at beginner independently of goal. Outdoors removes machine/cable/Smith-machine availability. Unknown or other source equipment remains ineligible through the UI.
+2. **Content C:** TF-IDF over exercise name, description, category, primary muscle, level and equipment; cosine against a goal/focus query. Ratings ≥4 add a liked-exercise centroid: 60% query + 40% centroid similarity. Without likes, use query similarity alone.
+3. **Popularity P (internal):** `(5 × prior + count × mean) / (5 + count)`. Source ratings are divided by 10; missing values use the median. Local ratings are divided by 5. This is rating evidence, not observed usage frequency or exercise quality validation.
+4. **Knowledge K (internal):** `0.7 × goal/category match + 0.3 × experience match`. General Fitness matches strength/cardio/stretching; Weight Loss cardio/plyometrics; Muscle Gain strength; Strength strength/powerlifting. Matches are binary.
+5. **Context X:** `0.6K + 0.4 × personal mean completion`; unobserved completion defaults to 0.5. Location and energy affect shared feasibility; time is allocated afterward.
+6. **Hybrid B:** `0.40C + 0.20P + 0.25K + 0.15X`. Weights stay fixed as project defaults. Feedback changes components, never switches methods. K is reused in X, so components are not independent: the effective rule contribution is 0.34K.
+7. Greedy diversity subtracts 0.10 per previously selected exercise sharing its primary muscle. Score columns show base scores, not this adjustment.
+8. Reserve five minutes for preparation. Allocate five-minute blocks for low energy, seven otherwise, shortening for the minimum ten-minute session when necessary. Selected exercises cannot exceed the budget. Durations include practice/rest/transitions and are illustrative.
 
-`evaluate.py` performs real-catalogue constraint checks and reports coverage/diversity. If genuine local histories contain sufficient unseen held-out positive items, it additionally computes chronological leave-last-positive-out Recall@10, NDCG@10 and hit rate for each method. It trains on the pre-cutoff global history only, avoiding future feedback leakage. Missing accuracy evidence is reported as unavailable, not replaced by synthetic fitness claims. Tests use small synthetic ratings solely as deterministic fixtures.
+## Demonstrations
 
-This is a local educational prototype, not a validated coaching or medical system. No health outcomes are inferred from demographics or BMI. It has no authentication or deployment hardening and binds only to localhost. Profiles persist unencrypted in the project database, are not uploaded and should use aliases. The app downloads no runtime images and works offline once dependencies/data are installed. Dataset origin does not establish clinical validity or that member sessions are longitudinal real-person measurements.
+`data/images/manifest.json` maps 24 exact catalogue matches to 48 local photos, with source URLs and SHA-256 hashes. The Free Exercise DB license is retained. Missing media and instructions have explicit fallback states. Plain Bear crawl does not inherit a sled-drag image. Photo availability only affects library display order, never recommendation ranking or feasibility.
+
+## Evaluation limits
+
+Tests cover constraints, fixed hybrid math, duration, rejected retired methods, migration, persistence, UI state and image integrity. `evaluate.py` runs 36 catalogue scenarios and conditionally evaluates chronological genuine held-out positives. Missing ranking accuracy is reported as unavailable. Source sessions are not joined into exercise ratings. Exercise-specific calories are unavailable. No fitness-outcome validation, authentication or deployment hardening is claimed; the server binds to localhost.

@@ -1,0 +1,482 @@
+{
+  "ex_reversecrunch": {
+    "exercise_name": "Reverse crunch",
+    "source_name": "Reverse Crunch",
+    "source": "Free Exercise DB",
+    "source_url": "https://github.com/yuhonas/free-exercise-db",
+    "license": "Unlicense / public domain dedication; see data/raw/FREE_EXERCISE_LICENSE.md",
+    "match": "exact normalized exercise name",
+    "images": [
+      {
+        "path": "data/images/ex_reversecrunch_0.jpg",
+        "url": "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Reverse_Crunch/0.jpg",
+        "sha256": "e75947d8504ca71723ade3f2a5c6fbfe38c358b26eee6924e98f2e023cb788cc"
+      },
+      {
+        "path": "data/images/ex_reversecrunch_1.jpg",
+        "url": "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Reverse_Crunch/1.jpg",
+        "sha256": "c3b300e3b33f4ef187632b5c1cab492e91cbd3e879a5d3b040ce0b11dc09bb12"
+      }
+    ]
+  },
+  "ex_crunches": {
+    "exercise_name": "Crunches",
+    "source_name": "Crunches",
+    "source": "Free Exercise DB",
+    "source_url": "https://github.com/yuhonas/free-exercise-db",
+    "license": "Unlicense / public domain dedication; see data/raw/FREE_EXERCISE_LICENSE.md",
+    "match": "exact normalized exercise name",
+    "images": [
+      {
+        "path": "data/images/ex_crunches_0.jpg",
+        "url": "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Crunches/0.jpg",
+        "sha256": "8b424d42b3196b9b6fdd70c86db60ba6fdae7a337710e8c01c278a6ea5c4220a"
+      },
+      {
+        "path": "data/images/ex_crunches_1.jpg",
+        "url": "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Crunches/1.jpg",
+        "sha256": "84df8957fcc20c051475a2d28fedb0c1a3b3e63b00913ae4acec1ed0dc150d22"
+      }
+    ]
+  },
+  "ex_barbellcurl": {
+    "exercise_name": "Barbell Curl",
+    "source_name": "Barbell Curl",
+    "source": "Free Exercise DB",
+    "source_url": "https://github.com/yuhonas/free-exercise-db",
+    "license": "Unlicense / public domain dedication; see data/raw/FREE_EXERCISE_LICENSE.md",
+    "match": "exact normalized exercise name",
+    "images": [
+      {
+        "path": "data/images/ex_barbellcurl_0.jpg",
+        "url": "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Barbell_Curl/0.jpg",
+        "sha256": "eb409ec1cced4d85c91c41920e66d8b2f0e4736dee43c01eab953fdcbeace673"
+      },
+      {
+        "path": "data/images/ex_barbellcurl_1.jpg",
+        "url": "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Barbell_Curl/1.jpg",
+        "sha256": "27474187c68680520d3c6dbd3a452bb11f1e77b5474d9143517f43d02f5d8c0e"
+      }
+    ]
+  },
+  "ex_hammercurls": {
+    "exercise_name": "Hammer Curls",
+    "source_name": "Hammer Curls",
+    "source": "Free Exercise DB",
+    "source_url": "https://github.com/yuhonas/free-exercise-db",
+    "license": "Unlicense / public domain dedication; see data/raw/FREE_EXERCISE_LICENSE.md",
+    "match": "exact normalized exercise name",
+    "images": [
+      {
+        "path": "data/images/ex_hammercurls_0.jpg",
+        "url": "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Hammer_Curls/0.jpg",
+        "sha256": "f3c330d75545bed1cc325a4abf84940109db64fa5ab967b1963ecccccd3b2fe8"
+      },
+      {
+        "path": "data/images/ex_hammercurls_1.jpg",
+        "url": "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Hammer_Curls/1.jpg",
+        "sha256": "42adf0d1577528fdfab45b360918320394a5017b082d2502ab3a00600622907e"
+      }
+    ]
+  },
+  "ex_dumbbellbicepcurl": {
+    "exercise_name": "Dumbbell Bicep Curl",
+    "source_name": "Dumbbell Bicep Curl",
+    "source": "Free Exercise DB",
+    "source_url": "https://github.com/yuhonas/free-exercise-db",
+    "license": "Unlicense / public domain dedication; see data/raw/FREE_EXERCISE_LICENSE.md",
+    "match": "exact normalized exercise name",
+    "images": [
+      {
+        "path": "data/images/ex_dumbbellbicepcurl_0.jpg",
+        "url": "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Dumbbell_Bicep_Curl/0.jpg",
+        "sha256": "fad8458c2f70c39e1abb0a9554bba280da5abf9f8dc2d76f7c0be44ffdbfc99b"
+      },
+      {
+        "path": "data/images/ex_dumbbellbicepcurl_1.jpg",
+        "url": "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Dumbbell_Bicep_Curl/1.jpg",
+        "sha256": "ec2c3a539aa80ea911a85e00ca9fb74502407e8ef0d8a4526e3b076a5a52b30a"
+      }
+    ]
+  },
+  "ex_standingcalfraises": {
+    "exercise_name": "Standing Calf Raises",
+    "source_name": "Standing Calf Raises",
+    "source": "Free Exercise DB",
+    "source_url": "https://github.com/yuhonas/free-exercise-db",
+    "license": "Unlicense / public domain dedication; see data/raw/FREE_EXERCISE_LICENSE.md",
+    "match": "exact normalized exercise name",
+    "images": [
+      {
+        "path": "data/images/ex_standingcalfraises_0.jpg",
+        "url": "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Standing_Calf_Raises/0.jpg",
+        "sha256": "44922f411d204bb00dc86015981413e0ca503f0b9ba2346af25f345a91cf4848"
+      },
+      {
+        "path": "data/images/ex_standingcalfraises_1.jpg",
+        "url": "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Standing_Calf_Raises/1.jpg",
+        "sha256": "f0990fed5d984fdf31c7b6a8420adb59ed6a3f286af6f228d53b68445caa1c51"
+      }
+    ]
+  },
+  "ex_barbellbenchpressmediumgrip": {
+    "exercise_name": "Barbell Bench Press - Medium Grip",
+    "source_name": "Barbell Bench Press - Medium Grip",
+    "source": "Free Exercise DB",
+    "source_url": "https://github.com/yuhonas/free-exercise-db",
+    "license": "Unlicense / public domain dedication; see data/raw/FREE_EXERCISE_LICENSE.md",
+    "match": "exact normalized exercise name",
+    "images": [
+      {
+        "path": "data/images/ex_barbellbenchpressmediumgrip_0.jpg",
+        "url": "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Barbell_Bench_Press_-_Medium_Grip/0.jpg",
+        "sha256": "44ba81b3ea124f625c555ae812b37263f82ae460749bbc9ebbeb55a6309f6663"
+      },
+      {
+        "path": "data/images/ex_barbellbenchpressmediumgrip_1.jpg",
+        "url": "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Barbell_Bench_Press_-_Medium_Grip/1.jpg",
+        "sha256": "5056475ae5def865dbe52882d30d2730142de2b03231bda304f82fd0b088f608"
+      }
+    ]
+  },
+  "ex_pushups": {
+    "exercise_name": "Pushups",
+    "source_name": "Pushups",
+    "source": "Free Exercise DB",
+    "source_url": "https://github.com/yuhonas/free-exercise-db",
+    "license": "Unlicense / public domain dedication; see data/raw/FREE_EXERCISE_LICENSE.md",
+    "match": "exact normalized exercise name",
+    "images": [
+      {
+        "path": "data/images/ex_pushups_0.jpg",
+        "url": "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Pushups/0.jpg",
+        "sha256": "8e6757ae0dc1d50a30f0ea67cdb330994947716a106451860cf7362bcd15f9f4"
+      },
+      {
+        "path": "data/images/ex_pushups_1.jpg",
+        "url": "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Pushups/1.jpg",
+        "sha256": "e835d50facea325828d7a3700185a0d8ba9f908db3f033334f81a6f85f774f27"
+      }
+    ]
+  },
+  "ex_inclinepushup": {
+    "exercise_name": "Incline Push-Up",
+    "source_name": "Incline Push-Up",
+    "source": "Free Exercise DB",
+    "source_url": "https://github.com/yuhonas/free-exercise-db",
+    "license": "Unlicense / public domain dedication; see data/raw/FREE_EXERCISE_LICENSE.md",
+    "match": "exact normalized exercise name",
+    "images": [
+      {
+        "path": "data/images/ex_inclinepushup_0.jpg",
+        "url": "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Incline_Push-Up/0.jpg",
+        "sha256": "07a34cfa5ba05bd7d87f00531ccec45a7db5e9412eafd49fe269cfe4e4bb03e9"
+      },
+      {
+        "path": "data/images/ex_inclinepushup_1.jpg",
+        "url": "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Incline_Push-Up/1.jpg",
+        "sha256": "3f9119875b57305c7e932fe9d222c5568def33da1bd38df7d5aa982c27e24541"
+      }
+    ]
+  },
+  "ex_dumbbellbenchpress": {
+    "exercise_name": "Dumbbell Bench Press",
+    "source_name": "Dumbbell Bench Press",
+    "source": "Free Exercise DB",
+    "source_url": "https://github.com/yuhonas/free-exercise-db",
+    "license": "Unlicense / public domain dedication; see data/raw/FREE_EXERCISE_LICENSE.md",
+    "match": "exact normalized exercise name",
+    "images": [
+      {
+        "path": "data/images/ex_dumbbellbenchpress_0.jpg",
+        "url": "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Dumbbell_Bench_Press/0.jpg",
+        "sha256": "06494fc5d679283ad7de10fd60149e543396bbd9ba65b0821937de317ce9e001"
+      },
+      {
+        "path": "data/images/ex_dumbbellbenchpress_1.jpg",
+        "url": "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Dumbbell_Bench_Press/1.jpg",
+        "sha256": "29ce1d1335b10ae5e92b208c512f4f562493379a9c49bafb249f945c5b702299"
+      }
+    ]
+  },
+  "ex_pullups": {
+    "exercise_name": "Pullups",
+    "source_name": "Pullups",
+    "source": "Free Exercise DB",
+    "source_url": "https://github.com/yuhonas/free-exercise-db",
+    "license": "Unlicense / public domain dedication; see data/raw/FREE_EXERCISE_LICENSE.md",
+    "match": "exact normalized exercise name",
+    "images": [
+      {
+        "path": "data/images/ex_pullups_0.jpg",
+        "url": "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Pullups/0.jpg",
+        "sha256": "e56c8c43a41cfe2489dcfffc2c8195fd9e8897ba25165dbc34a4154ed6df5c7a"
+      },
+      {
+        "path": "data/images/ex_pullups_1.jpg",
+        "url": "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Pullups/1.jpg",
+        "sha256": "40549a52b064e5084a85e2c36afb51438df6ac1097169379a05f21565f8b4f3f"
+      }
+    ]
+  },
+  "ex_superman": {
+    "exercise_name": "Superman",
+    "source_name": "Superman",
+    "source": "Free Exercise DB",
+    "source_url": "https://github.com/yuhonas/free-exercise-db",
+    "license": "Unlicense / public domain dedication; see data/raw/FREE_EXERCISE_LICENSE.md",
+    "match": "exact normalized exercise name",
+    "images": [
+      {
+        "path": "data/images/ex_superman_0.jpg",
+        "url": "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Superman/0.jpg",
+        "sha256": "5c34c09703bbd0a0c9f8d4fc58c17b5b5290f5663fa651aedee8e99db2a435a7"
+      },
+      {
+        "path": "data/images/ex_superman_1.jpg",
+        "url": "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Superman/1.jpg",
+        "sha256": "ad0860abb2689c2ed27af9f4cc4aa0b944dac27c6f839e93eb47067f95e81f07"
+      }
+    ]
+  },
+  "ex_seatedcablerows": {
+    "exercise_name": "Seated Cable Rows",
+    "source_name": "Seated Cable Rows",
+    "source": "Free Exercise DB",
+    "source_url": "https://github.com/yuhonas/free-exercise-db",
+    "license": "Unlicense / public domain dedication; see data/raw/FREE_EXERCISE_LICENSE.md",
+    "match": "exact normalized exercise name",
+    "images": [
+      {
+        "path": "data/images/ex_seatedcablerows_0.jpg",
+        "url": "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Seated_Cable_Rows/0.jpg",
+        "sha256": "f5a4adf972f93a6c7b09e003f23005a1163653a7e36b71f1e374acab0243ddf7"
+      },
+      {
+        "path": "data/images/ex_seatedcablerows_1.jpg",
+        "url": "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Seated_Cable_Rows/1.jpg",
+        "sha256": "0b8e1a0b0fff86cafff45d851ea631a20d469713e9fd735031d3fffb0299fde6"
+      }
+    ]
+  },
+  "ex_barbellsquat": {
+    "exercise_name": "Barbell Squat",
+    "source_name": "Barbell Squat",
+    "source": "Free Exercise DB",
+    "source_url": "https://github.com/yuhonas/free-exercise-db",
+    "license": "Unlicense / public domain dedication; see data/raw/FREE_EXERCISE_LICENSE.md",
+    "match": "exact normalized exercise name",
+    "images": [
+      {
+        "path": "data/images/ex_barbellsquat_0.jpg",
+        "url": "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Barbell_Squat/0.jpg",
+        "sha256": "469a3c5a6eb35b88c45cda9fa7f9086032976fa3d45f5d844a0cc09a95574db5"
+      },
+      {
+        "path": "data/images/ex_barbellsquat_1.jpg",
+        "url": "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Barbell_Squat/1.jpg",
+        "sha256": "8663a34f2d0a0a33d3d39b505cf3cdd38e282c1c9020d39d5587976e8d8a3020"
+      }
+    ]
+  },
+  "ex_gobletsquat": {
+    "exercise_name": "Goblet Squat",
+    "source_name": "Goblet Squat",
+    "source": "Free Exercise DB",
+    "source_url": "https://github.com/yuhonas/free-exercise-db",
+    "license": "Unlicense / public domain dedication; see data/raw/FREE_EXERCISE_LICENSE.md",
+    "match": "exact normalized exercise name",
+    "images": [
+      {
+        "path": "data/images/ex_gobletsquat_0.jpg",
+        "url": "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Goblet_Squat/0.jpg",
+        "sha256": "342ea87afb9fa03d9b1ac9c28c269f9ad2536d40b5a73b0bfb1ea25c9d605d02"
+      },
+      {
+        "path": "data/images/ex_gobletsquat_1.jpg",
+        "url": "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Goblet_Squat/1.jpg",
+        "sha256": "49d5facb019c3be9302134edf1e4b786cc88fbe25413ee7ba3e8d278952ded85"
+      }
+    ]
+  },
+  "ex_dumbbellsquat": {
+    "exercise_name": "Dumbbell squat",
+    "source_name": "Dumbbell Squat",
+    "source": "Free Exercise DB",
+    "source_url": "https://github.com/yuhonas/free-exercise-db",
+    "license": "Unlicense / public domain dedication; see data/raw/FREE_EXERCISE_LICENSE.md",
+    "match": "exact normalized exercise name",
+    "images": [
+      {
+        "path": "data/images/ex_dumbbellsquat_0.jpg",
+        "url": "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Dumbbell_Squat/0.jpg",
+        "sha256": "04bfaa45a505214f4909392022edf361cb0ff65529bc0d289870adbb8b259b02"
+      },
+      {
+        "path": "data/images/ex_dumbbellsquat_1.jpg",
+        "url": "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Dumbbell_Squat/1.jpg",
+        "sha256": "8ece837174f84fae7650f5bd74634898e6262679641f3b24198ddc78ebc2fd7a"
+      }
+    ]
+  },
+  "ex_dumbbelllunges": {
+    "exercise_name": "Dumbbell Lunges",
+    "source_name": "Dumbbell Lunges",
+    "source": "Free Exercise DB",
+    "source_url": "https://github.com/yuhonas/free-exercise-db",
+    "license": "Unlicense / public domain dedication; see data/raw/FREE_EXERCISE_LICENSE.md",
+    "match": "exact normalized exercise name",
+    "images": [
+      {
+        "path": "data/images/ex_dumbbelllunges_0.jpg",
+        "url": "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Dumbbell_Lunges/0.jpg",
+        "sha256": "ab3d56b0b44e82d189dfd88de2838220445cb245fae8a0f1586daa67355604d4"
+      },
+      {
+        "path": "data/images/ex_dumbbelllunges_1.jpg",
+        "url": "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Dumbbell_Lunges/1.jpg",
+        "sha256": "138a08303cb955b1f4867cf6eaeab1664c32079dcbd7fac871eccf7d9597d671"
+      }
+    ]
+  },
+  "ex_bodyweightsquat": {
+    "exercise_name": "Bodyweight squat",
+    "source_name": "Bodyweight Squat",
+    "source": "Free Exercise DB",
+    "source_url": "https://github.com/yuhonas/free-exercise-db",
+    "license": "Unlicense / public domain dedication; see data/raw/FREE_EXERCISE_LICENSE.md",
+    "match": "exact normalized exercise name",
+    "images": [
+      {
+        "path": "data/images/ex_bodyweightsquat_0.jpg",
+        "url": "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Bodyweight_Squat/0.jpg",
+        "sha256": "85715b9b75afe568ef7cb1863005be532a2457bf7e340802da0cd5cc06914b62"
+      },
+      {
+        "path": "data/images/ex_bodyweightsquat_1.jpg",
+        "url": "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Bodyweight_Squat/1.jpg",
+        "sha256": "3fa6886632674f02308cdee53ce32649fd648774701fbd20ee280d63be40e5a4"
+      }
+    ]
+  },
+  "ex_sidelateralraise": {
+    "exercise_name": "Side Lateral Raise",
+    "source_name": "Side Lateral Raise",
+    "source": "Free Exercise DB",
+    "source_url": "https://github.com/yuhonas/free-exercise-db",
+    "license": "Unlicense / public domain dedication; see data/raw/FREE_EXERCISE_LICENSE.md",
+    "match": "exact normalized exercise name",
+    "images": [
+      {
+        "path": "data/images/ex_sidelateralraise_0.jpg",
+        "url": "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Side_Lateral_Raise/0.jpg",
+        "sha256": "aa1982c367ea9151ee7769ac1f9f8795209db94a6eb85f7d51a7033886fb7ebc"
+      },
+      {
+        "path": "data/images/ex_sidelateralraise_1.jpg",
+        "url": "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Side_Lateral_Raise/1.jpg",
+        "sha256": "9210e0fb0202c306026d45a55703aaec89b3bef7aafeb7791aa1d06adcf58ab3"
+      }
+    ]
+  },
+  "ex_barbellsidebend": {
+    "exercise_name": "Barbell Side Bend",
+    "source_name": "Barbell Side Bend",
+    "source": "Free Exercise DB",
+    "source_url": "https://github.com/yuhonas/free-exercise-db",
+    "license": "Unlicense / public domain dedication; see data/raw/FREE_EXERCISE_LICENSE.md",
+    "match": "exact normalized exercise name",
+    "images": [
+      {
+        "path": "data/images/ex_barbellsidebend_0.jpg",
+        "url": "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Barbell_Side_Bend/0.jpg",
+        "sha256": "7b5bb9a8beb9118cc7684b4b85fa5e2d7fcd19fdc5d2fe57f770134e8f9c45e2"
+      },
+      {
+        "path": "data/images/ex_barbellsidebend_1.jpg",
+        "url": "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Barbell_Side_Bend/1.jpg",
+        "sha256": "74311470ee1b1b334d47358c86ef53bab47c7a3bdb8500bbea1ec7b558858481"
+      }
+    ]
+  },
+  "ex_advancedkettlebellwindmill": {
+    "exercise_name": "Advanced Kettlebell Windmill",
+    "source_name": "Advanced Kettlebell Windmill",
+    "source": "Free Exercise DB",
+    "source_url": "https://github.com/yuhonas/free-exercise-db",
+    "license": "Unlicense / public domain dedication; see data/raw/FREE_EXERCISE_LICENSE.md",
+    "match": "exact normalized exercise name",
+    "images": [
+      {
+        "path": "data/images/ex_advancedkettlebellwindmill_0.jpg",
+        "url": "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Advanced_Kettlebell_Windmill/0.jpg",
+        "sha256": "b758e272b8efc42023caaf8bcf3f3b152959cd4f5cb8cfa1a7fe0f43c08af1f7"
+      },
+      {
+        "path": "data/images/ex_advancedkettlebellwindmill_1.jpg",
+        "url": "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Advanced_Kettlebell_Windmill/1.jpg",
+        "sha256": "d47c85720839098d247f1225ba77f4175ee43dd6e8a209a3d165129f8fe5982b"
+      }
+    ]
+  },
+  "ex_kettlebellpassbetweenthelegs": {
+    "exercise_name": "Kettlebell Pass Between The Legs",
+    "source_name": "Kettlebell Pass Between The Legs",
+    "source": "Free Exercise DB",
+    "source_url": "https://github.com/yuhonas/free-exercise-db",
+    "license": "Unlicense / public domain dedication; see data/raw/FREE_EXERCISE_LICENSE.md",
+    "match": "exact normalized exercise name",
+    "images": [
+      {
+        "path": "data/images/ex_kettlebellpassbetweenthelegs_0.jpg",
+        "url": "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Kettlebell_Pass_Between_The_Legs/0.jpg",
+        "sha256": "dd92e544cdc5bc053378f51665cdc29604e636a1f0f35d82f2982c7938d58cef"
+      },
+      {
+        "path": "data/images/ex_kettlebellpassbetweenthelegs_1.jpg",
+        "url": "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Kettlebell_Pass_Between_The_Legs/1.jpg",
+        "sha256": "2142aeef2dd9c00e222b892fa61ef8064df50835b7eb6af91c3e6af5567ff6c6"
+      }
+    ]
+  },
+  "ex_platetwist": {
+    "exercise_name": "Plate Twist",
+    "source_name": "Plate Twist",
+    "source": "Free Exercise DB",
+    "source_url": "https://github.com/yuhonas/free-exercise-db",
+    "license": "Unlicense / public domain dedication; see data/raw/FREE_EXERCISE_LICENSE.md",
+    "match": "exact normalized exercise name",
+    "images": [
+      {
+        "path": "data/images/ex_platetwist_0.jpg",
+        "url": "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Plate_Twist/0.jpg",
+        "sha256": "6253f4b81fa8e5b3c46082be40c365e15e00c28954def1c044873e2a93acf984"
+      },
+      {
+        "path": "data/images/ex_platetwist_1.jpg",
+        "url": "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Plate_Twist/1.jpg",
+        "sha256": "f9b44c7a4e9ffce9cc3bf3cdad542f3497c9ee9f81707868410c19a04f0211b7"
+      }
+    ]
+  },
+  "ex_bosuballcablecrunchwithsidebends": {
+    "exercise_name": "Bosu Ball Cable Crunch With Side Bends",
+    "source_name": "Bosu Ball Cable Crunch With Side Bends",
+    "source": "Free Exercise DB",
+    "source_url": "https://github.com/yuhonas/free-exercise-db",
+    "license": "Unlicense / public domain dedication; see data/raw/FREE_EXERCISE_LICENSE.md",
+    "match": "exact normalized exercise name",
+    "images": [
+      {
+        "path": "data/images/ex_bosuballcablecrunchwithsidebends_0.jpg",
+        "url": "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Bosu_Ball_Cable_Crunch_With_Side_Bends/0.jpg",
+        "sha256": "da798b4eeee27e0b90c038e0e7ced78fc92b1ec112cd687b69d24f217d6f16d4"
+      },
+      {
+        "path": "data/images/ex_bosuballcablecrunchwithsidebends_1.jpg",
+        "url": "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Bosu_Ball_Cable_Crunch_With_Side_Bends/1.jpg",
+        "sha256": "d0dc722667c64e7ff9f5ffa492aa8067a7faca97c7ed6134f8f71fc1ae59db4f"
+      }
+    ]
+  }
+}

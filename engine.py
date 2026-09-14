@@ -9,9 +9,9 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 ROOT=Path(__file__).resolve().parent
 LEVELS={'beginner':0,'intermediate':1,'expert':2}
-GOALS=['Beginner','Weight Loss','Muscle Gain','Strength']
-METHODS=['Hybrid','Popularity','Content cosine','SVD','User CF','Item CF','Knowledge','Context']
-GOAL_TEXT={'Beginner':'beginner strength bodyweight compound',
+GOALS=['General Fitness','Weight Loss','Muscle Gain','Strength']
+METHODS=['Hybrid','Content-based','Context-aware']
+GOAL_TEXT={'General Fitness':'strength cardio endurance flexibility full body compound',
            'Weight Loss':'cardio endurance aerobic circuit full body',
            'Muscle Gain':'strength hypertrophy muscle compound isolation',
            'Strength':'strength powerlifting compound barbell'}
@@ -23,7 +23,7 @@ class Profile:
     gender: str='Prefer not to say'
     height_cm: float=170
     weight_kg: float=70
-    goal: str='Beginner'
+    goal: str='General Fitness'
     experience: str='beginner'
     equipment: list=field(default_factory=lambda:['bodyweight','dumbbell','bench'])
     muscles: list=field(default_factory=list)
@@ -55,42 +55,6 @@ class Recommender:
         self.ids=self.items.exercise_id.tolist()
         self.lookup={eid:i for i,eid in enumerate(self.ids)}
 
-    def collaborative(self,user_id):
-        """Observed overlap for CF; centered truncated SVD only when feedback exists.
-
-        Missing centered entries are zero residuals, not zero-star observations.
-        This is an educational imputation baseline, not observed-only optimization.
-        """
-        n=len(self.items)
-        zero=np.zeros(n)
-        hist=self.history[self.history.exercise_id.isin(self.ids)]
-        if hist.empty: return {'SVD':zero,'User CF':zero,'Item CF':zero},False
-        matrix=hist.pivot_table(index='user_id',columns='exercise_id',values='rating',aggfunc='mean').reindex(columns=self.ids)
-        if user_id not in matrix.index or len(matrix)<2: return {'SVD':zero,'User CF':zero,'Item CF':zero},False
-        a=matrix.to_numpy(dtype=float); observed=np.isfinite(a)
-        means=np.nanmean(a,axis=1); centered=np.where(observed,a-means[:,None],0)
-        uidx=matrix.index.get_loc(user_id)
-        if observed[uidx].sum()<2: return {'SVD':zero,'User CF':zero,'Item CF':zero},False
-        # Cosine on observed ratings; overlap shrinkage prevents one shared rating dominating.
-        filled=np.nan_to_num(a)
-        usim=cosine_similarity(filled[uidx:uidx+1],filled)[0]
-        overlaps=observed.astype(float)@observed[uidx].astype(float)
-        usim*=overlaps/(overlaps+3); usim[uidx]=0
-        denom=usim@observed
-        user_pred=np.divide(usim@filled,denom,out=np.zeros(n),where=denom>0)/5
-        # Compute only columns the user rated, avoiding an N x N item matrix.
-        rated=np.flatnonzero(observed[uidx])
-        isim=cosine_similarity(filled.T,filled[:,rated].T)
-        overlap=observed.T.astype(float)@observed[:,rated].astype(float)
-        isim*=overlap/(overlap+3)
-        for col,idx in enumerate(rated): isim[idx,col]=0
-        item_pred=np.divide(isim@a[uidx,rated],isim.sum(axis=1),out=np.zeros(n),where=isim.sum(axis=1)>0)/5
-        u,s,vt=np.linalg.svd(centered,full_matrices=False)
-        k=min(8,max(1,len(s)-1))
-        svd=np.clip(means[uidx]+(u[uidx,:k]*s[:k])@vt[:k],1,5)/5
-        svd[~observed.any(axis=0)]=0
-        return {'SVD':svd,'User CF':user_pred,'Item CF':item_pred},True
-
     def recommend(self,profile,method='Hybrid',top_n=8,exclude_seen=False):
         profile.validate()
         if method not in METHODS: raise ValueError('Unknown recommendation method.')
@@ -98,7 +62,7 @@ class Recommender:
         df=self.items.copy()
         equipment=set(profile.equipment)|{'bodyweight'}
         if profile.location=='Outdoors': equipment-= {'machine','cable','smith machine'}
-        limit=min(LEVELS[profile.experience],0 if profile.goal=='Beginner' or profile.energy=='Low' else 2)
+        limit=min(LEVELS[profile.experience],0 if profile.energy=='Low' else 2)
         allowed=df.level.map(LEVELS).fillna(99)<=limit
         allowed &= df.required_equipment.map(lambda s:set(s.split('|')).issubset(equipment))
         allowed &= ~df.muscle.isin(profile.excluded_muscles)
@@ -120,17 +84,14 @@ class Recommender:
         averages=df.exercise_id.map(agg['mean']).fillna(0).to_numpy()/5
         popularity=(5*prior+counts*averages)/(5+counts)
         preferred={'Weight Loss':['cardio','plyometrics'],'Strength':['strength','powerlifting'],
-                   'Muscle Gain':['strength'],'Beginner':['strength','cardio','stretching']}[profile.goal]
+                   'Muscle Gain':['strength'],'General Fitness':['strength','cardio','stretching']}[profile.goal]
         knowledge=.7*df.category.isin(preferred).to_numpy()+.3*df.level.eq(profile.experience).to_numpy()
         # Local feedback completion supplies a contextual preference signal.
         completion=seen.groupby('exercise_id').completion.mean() if not seen.empty else pd.Series(dtype=float)
         context=.6*knowledge+.4*df.exercise_id.map(completion).fillna(.5).to_numpy()
-        cf,ready=self.collaborative(profile.user_id)
-        scores={'Popularity':popularity,'Content cosine':content,'Knowledge':knowledge,'Context':context,**cf}
+        scores={'Popularity':popularity,'Content-based':content,'Knowledge':knowledge,'Context-aware':context}
         scores['Hybrid']=.40*content+.20*popularity+.25*knowledge+.15*context
-        if ready: scores['Hybrid']=.8*scores['Hybrid']+.2*(cf['SVD']+cf['User CF']+cf['Item CF'])/3
-        fallback=method in cf and not ready
-        df['score']=scores['Hybrid'] if fallback else scores[method]
+        df['score']=scores[method]
         for name,score in scores.items(): df[name]=score
         df=df[allowed].sort_values(['score','name'],ascending=[False,True])
         # Greedy diversity avoids filling a full-body session with one muscle group.
@@ -141,11 +102,13 @@ class Recommender:
             muscle_counts[row.muscle]=muscle_counts.get(row.muscle,0)+1
             df=df.drop(idx)
         result=pd.DataFrame(selected) if selected else df
-        result['reason']=[f'{r.muscle}; {r.level}; available equipment; {profile.goal.lower()} match. '
-                          f'Content {r["Content cosine"]:.2f}, prior/feedback {r.Popularity:.2f}, rules {r.Knowledge:.2f}.'
+        result['reason']=[f'Fits your equipment and experience limits; targets {r.muscle}. '
+                          f'{method} score {r.score:.2f}. Content {r["Content-based"]:.2f}, '
+                          f'rating evidence {r.Popularity:.2f}, goal/experience rules {r.Knowledge:.2f}, '
+                          f'context {r["Context-aware"]:.2f}.'
                           for _,r in result.iterrows()]
-        return result.reset_index(drop=True), {'eligible':int(allowed.sum()),'collaborative_ready':ready,
-             'fallback':fallback,'message':'Hybrid fallback: collaborative methods need this user to rate at least 2 exercises and at least 2 users overall.' if fallback else ''}
+        return result.reset_index(drop=True), {'eligible':int(allowed.sum()), 'method':method}
+
 
 def make_plan(ranked,profile):
     """Transparent demo time allocation; durations include sets/rest/transitions."""
@@ -157,15 +120,3 @@ def make_plan(ranked,profile):
     plan['duration_minutes']=block
     plan['suggested_format']=plan.category.map(lambda c:'Easy timed practice' if c in ['cardio','stretching'] else 'Technique-focused sets; choose comfortable load')
     return plan
-
-def comparable_sessions(profile,members,k=20):
-    """Case-based retrieval from source sessions; never creates exercise-level labels."""
-    cols=['Age','Weight (kg)','Height (m)','Experience_Level']
-    target=np.array([profile.age,profile.weight_kg,profile.height_cm/100,LEVELS[profile.experience]+1])
-    values=members[cols].apply(pd.to_numeric,errors='coerce')
-    valid=values.notna().all(axis=1)
-    scale=values[valid].std().replace(0,1)
-    distance=((values[valid]-target)/scale).pow(2).mean(axis=1).pow(.5)
-    cases=members.loc[distance.nsmallest(k).index].copy()
-    cases['similarity']=1/(1+distance.loc[cases.index])
-    return cases

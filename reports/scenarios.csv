@@ -1,13 +1,13 @@
 goal,location,budget,eligible,planned,allocated_minutes,equipment_violations,budget_violation,unique_muscles
-Beginner,Gym,10,124,1,10,0,False,1
-Beginner,Gym,30,124,3,26,0,False,3
-Beginner,Gym,60,124,7,54,0,False,7
-Beginner,Home,10,124,1,10,0,False,1
-Beginner,Home,30,124,3,26,0,False,3
-Beginner,Home,60,124,7,54,0,False,7
-Beginner,Outdoors,10,124,1,10,0,False,1
-Beginner,Outdoors,30,124,3,26,0,False,3
-Beginner,Outdoors,60,124,7,54,0,False,7
+General Fitness,Gym,10,124,1,10,0,False,1
+General Fitness,Gym,30,124,3,26,0,False,3
+General Fitness,Gym,60,124,7,54,0,False,7
+General Fitness,Home,10,124,1,10,0,False,1
+General Fitness,Home,30,124,3,26,0,False,3
+General Fitness,Home,60,124,7,54,0,False,7
+General Fitness,Outdoors,10,124,1,10,0,False,1
+General Fitness,Outdoors,30,124,3,26,0,False,3
+General Fitness,Outdoors,60,124,7,54,0,False,7
 Weight Loss,Gym,10,124,1,10,0,False,1
 Weight Loss,Gym,30,124,3,26,0,False,3
 Weight Loss,Gym,60,124,7,54,0,False,5
