@@ -133,7 +133,7 @@ st.divider()
 history=storage.activities(); profile=Profile(**st.session_state['_applied'])
 personal=history[history.user_id.eq(profile.user_id)]
 
-def show_exercise(row,key_prefix,duration=None):
+def show_exercise(row,key_prefix,duration=None,method=None):
     eid=row['exercise_id']; photos=image_paths(eid,manifest)
     with st.container(border=True):
         photo_col,detail=st.columns([1,3])
@@ -162,7 +162,9 @@ def show_exercise(row,key_prefix,duration=None):
                 if duration is not None: st.caption('Allocated time includes practice, rest and transitions; choose a comfortable load.')
             if 'reason' in row:
                 with st.expander('Why this exercise?'):
-                    st.write(row['reason'])
+                    st.write(f"Fits your equipment and experience limits; targets {row['muscle']}.")
+                    if method is not None:
+                        st.write(f"{method} score: {row['score']:.2f}")
                     st.caption('All methods respect your equipment, experience and primary-muscle preferences. Selection also encourages muscle variety.')
             st.button('Log this exercise',key=f'{key_prefix}_{eid}',on_click=go_log,args=(eid,))
 
@@ -218,15 +220,10 @@ if page=='Build workout':
             a,b,c=st.columns(3)
             a.metric('Exercises',len(plan)); b.metric('Allocated time',f'{int(plan.duration_minutes.sum())+5} min'); c.metric('Method',method)
             st.caption(f'Includes a 5-minute preparation buffer. {meta["eligible"]} exercises met your constraints.')
-            for _,row in plan.iterrows(): show_exercise(row,'plan',row.duration_minutes)
+            for _,row in plan.iterrows(): show_exercise(row,'plan',row.duration_minutes,method=method)
             a,b=st.columns(2)
             with a: st.download_button('Download workout CSV',plan.to_csv(index=False).encode('utf-8'),'my_workout.csv','text/csv',use_container_width=True)
             with b: st.download_button('Download profile JSON',json.dumps(asdict(profile),indent=2),'profile.json','application/json',use_container_width=True)
-            with st.expander('How the ranking works'):
-                st.write('Hybrid = 40% Content + 20% Popularity + 25% Knowledge + 15% Context.')
-                st.caption('Popularity and Knowledge are internal score components. The weights stay fixed; feedback changes the component values.')
-                st.dataframe(ranked[['name','score','Content-based','Popularity','Knowledge','Context-aware']].rename(columns={'score':'Selected method score'}),hide_index=True,use_container_width=True)
-                st.caption('Scores are ranking signals, not probabilities. A muscle-diversity adjustment determines selection order.')
 
 elif page=='Exercise library':
     st.subheader('Get to know the movements'); st.write('Browse exercise details before adding them to your routine.')
